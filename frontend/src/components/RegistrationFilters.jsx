@@ -1,5 +1,4 @@
 import { Search, RotateCcw, Filter } from "lucide-react";
-
 export function RegistrationFilters({
   searchTerm,
   onSearchChange,
@@ -10,7 +9,6 @@ export function RegistrationFilters({
   onClearFilters,
 }) {
   const hasActiveFilters = searchTerm || selectedType || selectedStatus;
-
   return (
     <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 shadow-2xl flex flex-col md:flex-row gap-4 items-center justify-between text-white">
       {/* Search Input */}
@@ -27,9 +25,7 @@ export function RegistrationFilters({
         />
       </div>
 
-      {/* Dropdown Filters */}
       <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-        {/* Type Filter */}
         <div className="flex items-center gap-2 bg-slate-900/40 border border-white/15 rounded-xl px-3 py-2 text-sm">
           <Filter className="w-4 h-4 text-indigo-400" />
           <span className="text-slate-300 text-xs uppercase tracking-wider font-semibold">Type:</span>
@@ -44,8 +40,6 @@ export function RegistrationFilters({
             <option value="VIP" className="bg-slate-900 text-white">VIP</option>
           </select>
         </div>
-
-        {/* Status Filter */}
         <div className="flex items-center gap-2 bg-slate-900/40 border border-white/15 rounded-xl px-3 py-2 text-sm">
           <span className="text-slate-300 text-xs uppercase tracking-wider font-semibold">Status:</span>
           <select
@@ -60,8 +54,6 @@ export function RegistrationFilters({
             <option value="Cancelled" className="bg-slate-900 text-white">Cancelled</option>
           </select>
         </div>
-
-        {/* Clear Filters Button */}
         {hasActiveFilters && (
           <button
             onClick={onClearFilters}

@@ -37,7 +37,7 @@ export function RegistrationTable({ registrations, isLoading, onSelectRow }) {
   }
 
   if (!registrations || registrations.length === 0) {
-    return null; // Handled in parent empty state
+    return null; 
   }
 
   return (
@@ -59,24 +59,18 @@ export function RegistrationTable({ registrations, isLoading, onSelectRow }) {
           <tbody className="divide-y divide-white/10 text-sm">
             {registrations.map((reg) => (
               <tr
-                key={reg.id}
+                key=
                 onClick={() => onSelectRow && onSelectRow(reg)}
                 className="hover:bg-white/5 transition cursor-pointer group"
               >
-                {/* Registration Number */}
                 <td className="py-4 px-6 font-mono font-semibold text-indigo-300 group-hover:text-indigo-200">
-                  {reg.registrationNumber}
-                </td>
-
-                {/* Date */}
+                </td>       
                 <td className="py-4 px-6 text-slate-300 whitespace-nowrap text-xs">
                   <div className="flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-slate-400" />
                     {formatDate(reg.registrationDate)}
                   </div>
                 </td>
-
-                {/* Participant */}
                 <td className="py-4 px-6">
                   <div className="font-semibold text-white">{reg.participantName}</div>
                   <div className="text-xs text-slate-400 flex items-center gap-3 mt-0.5">
@@ -88,41 +82,29 @@ export function RegistrationTable({ registrations, isLoading, onSelectRow }) {
                     </span>
                   </div>
                 </td>
-
-                {/* Car & Plate */}
                 <td className="py-4 px-6">
                   <div className="font-medium text-white flex items-center gap-1.5">
                     <Car className="w-4 h-4 text-indigo-400 shrink-0" />
                     {reg.carMakeModel}
                   </div>
                   <div className="text-xs font-mono text-slate-300 mt-0.5 bg-slate-900/50 px-2 py-0.5 rounded border border-white/10 inline-block">
-                    {reg.plateNumber}
                   </div>
                 </td>
-
-                {/* Type Badge */}
                 <td className="py-4 px-6 whitespace-nowrap">
                   <span
                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
                       TYPE_STYLES[reg.registrationType] || "bg-slate-500/20 text-slate-300 border-slate-500/30"
                     }`}
                   >
-                    {reg.registrationType}
                   </span>
                 </td>
-
-                {/* Fee / Paid */}
                 <td className="py-4 px-6 text-right whitespace-nowrap">
                   <div className="font-semibold text-white">{formatPhp(reg.registrationFee)}</div>
                   <div className="text-xs text-emerald-400">Paid: {formatPhp(reg.amountPaid)}</div>
                 </td>
-
-                {/* Payment Badge */}
                 <td className="py-4 px-6 text-center whitespace-nowrap">
                   <PaymentBadge paymentStatus={reg.paymentStatus} />
                 </td>
-
-                {/* Status Badge */}
                 <td className="py-4 px-6 text-center whitespace-nowrap">
                   <StatusBadge status={reg.status} />
                 </td>
